@@ -1,0 +1,73 @@
+Weight of data,
+	n = 8
+
+Finding Mean(x) and Mean(y),
+		Mean(x) = sigma(x)/n = (62.0 + 64.0 + 65.0 + 69.0 + 70.0 + 71.0 + 72.0 + 74.0)/8 = 68.38 (nearing no is 69.0)
+		Mean(y) = sigma(y)/n = (126.0 + 125.0 + 139.0 + 145.0 + 165.0 + 152.0 + 180.0 + 208.0)/8 = 155.0 (nearing no is 152.0)
+
+Therefore,
+	Mean(x) = 69.0
+	Mean(y) = 152.0
+
+Finding X, Y, X^2, Y^2 and XY,
+	X = x - Mean(x)
+	  = x - 69.0
+	Y = y - Mean(y)
+	  = y - 152.0
+
+--------  --------  --------  --------  ----------  ----------  ---------
+x         y         X         Y         X^2         Y^2         XY
+62.0      126.0     -7.0      -26.0     49.0        676.0       182.0
+64.0      125.0     -5.0      -27.0     25.0        729.0       135.0
+65.0      139.0     -4.0      -13.0     16.0        169.0       52.0
+69.0      145.0     0.0       -7.0      0.0         49.0        -0.0
+70.0      165.0     1.0       13.0      1.0         169.0       13.0
+71.0      152.0     2.0       0.0       4.0         0.0         0.0
+72.0      180.0     3.0       28.0      9.0         784.0       84.0
+74.0      208.0     5.0       56.0      25.0        3136.0      280.0
+sigma(x)  sigma(y)  sigma(X)  sigma(Y)  sigma(X^2)  sigma(Y^2)  sigma(XY)
+547.0     1240.0    -5.0      24.0      129.0       5712.0      746.0
+--------  --------  --------  --------  ----------  ----------  ---------
+
+Finding Mean(X) and Mean(Y),
+		Mean(X) = sigma(X)/n = -5.0/8 = -0.625
+		Mean(Y) = sigma(Y)/n = 24.0/8 = 3.0
+
+Finding si(X) and si(Y),
+		si(X) = sqrt((sigma(X^2)/n)-(Mean(X)^2))
+		      = sqrt((129.0/8)-(-0.625))
+		      = sqrt(15.734)
+		      = 3.967
+		si(Y) = sqrt((sigma(Y^2)/n)-(Mean(Y)^2))
+		      = sqrt((5712.0/8)-(3.0))
+		      = sqrt(705.0)
+		      = 26.552
+
+Finding Covarience of X and Y,
+		COV(X,Y) = (sigma(XY)/n) - (Mean(X)*Mean(Y))
+		         = (746.0/8) - (-0.625*3.0)
+		         = 95.125
+
+Finding Coefficient of Covarience,
+		r(X,Y) = COV(X,Y) / (si(X)*si(Y))
+		       = 95.125 / (3.967*26.552)
+		       = 95.125 / 105.332
+		       = 0.903
+
+Equation of lines of regression of y on x,
+		y - Mean(y) = r * (si(Y)/si(X)) * (x - Mean(x))
+		y - 152.0 = 0.903 * (26.552/3.967) * (x - 69.0)
+		y - 152.0 = 0.903 * 6.693 * (x - 69.0)
+		y - 152.0 = 6.044 * (x - 69.0)
+		y = 6.044x - (-417.036) + (152.0)
+		y = 6.044x-265.036
+
+Equation of lines of regression of x on y,
+		x - Mean(x) = r * (si(X)/si(Y)) * (y - Mean(y))
+		x - 69.0 = 0.903 * (3.967/26.552) * (y - 152.0)
+		x - 69.0 = 0.903 * 0.149 * (y - 152.0)
+		x - 69.0 = 0.135 * (y - 152.0)
+		x = 0.135y - (-20.52) + (69.0)
+		y = 0.135y48.48
+
+Thus, we have found the Coefficient of Correlation and Lines of Regression for the given data.
