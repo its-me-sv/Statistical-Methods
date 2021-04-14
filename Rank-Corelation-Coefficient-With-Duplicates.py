@@ -1,3 +1,6 @@
+from tabulate import tabulate
+from time import time
+
 # Reading Input From File
 file = open("input2.txt")
 content = file.readlines()
@@ -30,8 +33,25 @@ ranksY = specificationY["ranks"]
 
 totalCorrectionFactor = specificationX["cf"] + specificationY["cf"]
 
-print("X\tY\tOR_X\tOR_Y\tNR_X\tNR_Y")
+table = [["X", "Y", "Old Rank X", "Old Rank Y", "New Rank X", "New Rank Y", "D", "D^2"]]
 for i in range(n):
-	print("{}\t{}\t{}\t{}\t{}\t{}".format(X[i], Y[i], ranksX[i][0], ranksY[i][0], ranksX[i][1], ranksY[i][1]))
+	d = abs(ranksX[i][1]-ranksY[i][1])
+	dSquare = d * d
+	table.append([X[i], Y[i], ranksX[i][0], ranksY[i][0], ranksX[i][1], ranksY[i][1], d, dSquare])
 
-print(totalCorrectionFactor)
+# print(tabulate(table))
+# print(totalCorrectionFactor)
+dSquareSum = sum([row[-1] for row in table[1:]]) +totalCorrectionFactor
+rankCorrelation = 1-((6*dSquareSum))/(n*((n**2)-1))
+# print(rankCorrelation)
+# print("No correlation" if not rankCorrelation else "negative correlation" if rankCorrelation < 0.0 else "positive correlation")
+
+def prettyWriting():
+	file = open("output2.txt", 'w')
+	start = time()
+	file.write("Weight of data,\n\tn = {}\n".format(n))
+
+	file.close()
+	print("Solution computed in {} second(s)".format(time()-start))
+
+prettyWriting()
