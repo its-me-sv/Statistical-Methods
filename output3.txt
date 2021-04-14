@@ -1,0 +1,50 @@
+Let the straight line be y = ax + b
+
+Weight of data,
+	n = 8
+
+The normal equations to fit a straight line y = ax + b,
+by means of method of least squares is,
+		a*Sigma(x) + n*b = Sigma(y)
+		a*Sigma(x^2) + b*Sigma(x) = Sigma(xy)
+
+Therefore, the normal equations are,
+		a*Sigma(x) + 8*b = Sigma(y)
+		a*Sigma(x^2) + b*Sigma(x) = Sigma(xy)
+
+Finding Sigma(x), Sigma(x^2), Sigma(y) and Sigma(xy),
+--------  --------  ----------  ---------
+x         y         x^2         xy
+71.0      69.0      5041.0      4899.0
+68.0      72.0      4624.0      4896.0
+73.0      70.0      5329.0      5110.0
+69.0      70.0      4761.0      4830.0
+67.0      68.0      4489.0      4556.0
+65.0      67.0      4225.0      4355.0
+66.0      68.0      4356.0      4488.0
+67.0      64.0      4489.0      4288.0
+Sigma(x)  Sigma(Y)  Sigma(x^2)  Sigma(xy)
+546.0     548.0     37314.0     37422.0
+--------  --------  ----------  ---------
+
+Therefore, the normal equations are,
+		546.0*a + 8*b = 548.0 => (1)
+		37314.0*a + 546.0*b = 37422.0 => (2)
+
+Solving Equations (1) and (2) by Cramer's rule,
+		D = [546.0, 8]
+		    [37314.0, 546.0]
+		Dx = [548.0, 8]
+		     [37422.0, 546.0]
+		Dy = [546.0, 548.0]
+		     [37314.0, 37422.0]
+		a = Det(Dx)/Det(D)
+		  = -168.0/-396.0
+		  = 0.42424242424242425
+		b = Det(Dy)/Det(D)
+		  = -15660.0/-396.0
+		  = 39.54545454545455
+
+Thus, the required equation,
+	y = ax + b
+	y = 0.42424242424242425x + (39.54545454545455)
