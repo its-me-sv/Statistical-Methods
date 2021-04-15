@@ -32,18 +32,23 @@ Therefore, the normal equations are,
 		37314.0*a + 546.0*b = 37422.0 => (2)
 
 Solving Equations (1) and (2) by Cramer's rule,
-		D = [546.0, 8]
-		    [37314.0, 546.0]
+		D  = [546.0, 8]
+		     [37314.0, 546.0]
+
 		Dx = [548.0, 8]
 		     [37422.0, 546.0]
+
 		Dy = [546.0, 548.0]
 		     [37314.0, 37422.0]
+
 		a = Det(Dx)/Det(D)
 		  = -168.0/-396.0
 		  = 0.42424242424242425
+
 		b = Det(Dy)/Det(D)
 		  = -15660.0/-396.0
 		  = 39.54545454545455
+
 
 Thus, the required equation,
 	y = ax + b
